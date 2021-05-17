@@ -14,7 +14,7 @@ class HttpUtil {
 
   factory HttpUtil() => _instance;
 
-  late Dio dio;
+   Dio dio;
   CancelToken cancelToken = new CancelToken();
 
   HttpUtil._internal() {
@@ -137,6 +137,7 @@ class HttpUtil {
           } on Exception catch (_) {
             return ErrorEntity(code: -1, message: "未知错误");
           }
+          break;
         }
       default:
         {
@@ -157,13 +158,13 @@ class HttpUtil {
 
   Future get(
     String path, {
-    required BuildContext context,
+    @required BuildContext context,
     dynamic params,
-    Options? options,
+    Options options,
     bool refresh = false,
     bool noCache = !CACHE_ENABLE,
     bool list = false,
-    String? cacheKey,
+    String cacheKey,
     bool cacheDisk = false,
   }) async {
     try {
@@ -189,9 +190,9 @@ class HttpUtil {
 
   Future post(
     String path, {
-    required BuildContext context,
+    @required BuildContext context,
     dynamic params,
-    Options? options,
+    Options options,
   }) async {
     Options requestOptions = options ?? Options();
     requestOptions = requestOptions.copyWith(extra: {
@@ -207,7 +208,7 @@ class HttpUtil {
   }
 
   /// restful put 操作
-  Future put(String path, {dynamic params, Options? options}) async {
+  Future put(String path, {dynamic params, Options options}) async {
     Options requestOptions = options ?? Options();
     /*Map<String, dynamic> _authorization = getAuthorizationHeader();
     if (_authorization != null) {
@@ -218,7 +219,7 @@ class HttpUtil {
     return response.data;
   }
 
-  Future patch(String path, {dynamic params, Options? options}) async {
+  Future patch(String path, {dynamic params, Options options}) async {
     Options requestOptions = options ?? Options();
     var response = await dio.patch(path,
         data: params, options: requestOptions, cancelToken: cancelToken);
@@ -226,7 +227,7 @@ class HttpUtil {
   }
 
   /// restful delete 操作
-  Future delete(String path, {dynamic params, Options? options}) async {
+  Future delete(String path, {dynamic params, Options options}) async {
     Options requestOptions = options ?? Options();
     var response = await dio.delete(path,
         data: params, options: requestOptions, cancelToken: cancelToken);
@@ -234,7 +235,7 @@ class HttpUtil {
   }
 
   /// restful post form 表单提交操作
-  Future postForm(String path, {dynamic params, Options? options}) async {
+  Future postForm(String path, {dynamic params, Options options}) async {
     Options requestOptions = options ?? Options();
     var response = await dio.post(path,
         data: FormData.fromMap(params),
@@ -246,9 +247,9 @@ class HttpUtil {
 
 class ErrorEntity implements Exception {
   int code;
-  String? message;
+  String message;
 
-  ErrorEntity({required this.code, required this.message});
+  ErrorEntity({@required this.code, @required this.message});
 
   String toString() {
     if (message == null) return "Exception";

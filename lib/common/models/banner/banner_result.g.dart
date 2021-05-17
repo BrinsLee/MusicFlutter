@@ -8,9 +8,8 @@ part of 'banner_result.dart';
 
 BannerResult _$BannerResultFromJson(Map<String, dynamic> json) {
   return BannerResult(
-    (json['banners'] as List)
-        .map((e) =>
-            e == null ? null : Banner.fromJson(e as Map<String, dynamic>))
+    (json['banners'] as List<dynamic>)
+        .map((e) => Banner.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }

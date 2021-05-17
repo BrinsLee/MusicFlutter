@@ -3,18 +3,13 @@ import 'package:music_flutter/model/baseModel.dart';
 import 'package:provider/provider.dart';
 
 class BaseView<T extends BaseModel> extends StatefulWidget {
-  late final Widget Function(BuildContext context, T model, Widget? child)
+  final Widget Function(BuildContext context, T model, Widget child)
       builder;
   final T model;
-  final Widget? child;
-  final Function(T)? onModelReady;
+  final Widget child;
+  final Function(T) onModelReady;
 
-  BaseView(
-      {Key? key,
-      required this.builder,
-      required this.model,
-      this.child,
-      this.onModelReady})
+  BaseView({Key key, this.builder, this.model, this.child, this.onModelReady})
       : super(key: key);
 
   @override
@@ -22,13 +17,13 @@ class BaseView<T extends BaseModel> extends StatefulWidget {
 }
 
 class _BaseViewState<T extends BaseModel> extends State<BaseView<T>> {
-  late T model;
+  T model;
 
   @override
   void initState() {
     model = widget.model;
     if (widget.onModelReady != null) {
-      widget.onModelReady!(model);
+      widget.onModelReady(model);
     }
     super.initState();
   }

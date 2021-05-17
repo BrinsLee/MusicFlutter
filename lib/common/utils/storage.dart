@@ -9,10 +9,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// 单例 StorageUtil().getItem('key')
 class StorageUtil {
   static final StorageUtil _singleton = new StorageUtil._internal();
-  late LocalStorage _storage;
+   LocalStorage _storage;
 
   factory StorageUtil() => _singleton;
-  static SharedPreferences? _prefs;
+  static SharedPreferences _prefs;
 
   StorageUtil._internal();
 
@@ -23,13 +23,13 @@ class StorageUtil {
   }
 
   dynamic getJSON(String key) {
-    String? jsonString = _prefs!.getString(key);
+    String jsonString = _prefs.getString(key);
     return jsonString == null ? null : jsonDecode(jsonString);
   }
 
   Future<bool> setJSON(String key, dynamic value) {
     String jsonStr = jsonEncode(value);
-    return _prefs!.setString(key, jsonStr);
+    return _prefs.setString(key, jsonStr);
   }
 
   String getItem(String key) {
@@ -41,15 +41,15 @@ class StorageUtil {
   }
 
   Future<bool> remove(String key) {
-    return _prefs!.remove(key);
+    return _prefs.remove(key);
   }
 
   Future<bool> setBool(String key, bool val) {
-    return _prefs!.setBool(key, val);
+    return _prefs.setBool(key, val);
   }
 
   bool getBool(String key) {
-    bool? val = _prefs!.getBool(key);
+    bool val = _prefs.getBool(key);
     return val == null ? false : val;
   }
 }

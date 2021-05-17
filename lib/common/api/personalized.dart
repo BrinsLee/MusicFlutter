@@ -9,7 +9,7 @@ class PersonalizedApi extends Api{
   /// 获取推荐音乐列表
   Future<PersonalizedMusicListResult> getPersonalizedMusicList({
     int limit = 10,
-    required BuildContext context,
+    @required BuildContext context,
     bool refresh = false,
     bool cacheDisk = false,
   }) async {
@@ -27,7 +27,7 @@ class PersonalizedApi extends Api{
   /// 获取推荐新音乐
   Future<PersonalizedNewMusicResult> getPersonalizedNewMusic({
     int limit = 10,
-    required BuildContext context,
+    @required BuildContext context,
     bool refresh = false,
     bool cacheDisk = false,
   }) async {

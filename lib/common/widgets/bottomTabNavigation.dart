@@ -15,7 +15,7 @@ class BottomTabNavigation extends StatefulWidget {
 class _BottomTabNavigationState extends State<BottomTabNavigation>
     with AutomaticKeepAliveClientMixin {
   final _pages = [HomePage(), DiscoveryPage(), VideoPage(), MePage()];
-  PageController? _pageController;
+  PageController _pageController;
   int _currentIndex = 0;
 
   @override
@@ -94,7 +94,7 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
       onPressed: () {
         setState(() {
           _currentIndex = index;
-          _pageController!.animateToPage(_currentIndex,
+          _pageController.animateToPage(_currentIndex,
               duration: Duration(milliseconds: 160), curve: Curves.easeIn);
         });
       },

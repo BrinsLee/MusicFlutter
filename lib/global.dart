@@ -1,4 +1,4 @@
-const CACHE_ENABLE = false;
+const CACHE_ENABLE = true;
 
 // 缓存的最长时间，单位（秒）
 const CACHE_MAXAGE = 1000;
@@ -14,3 +14,6 @@ const String STORAGE_PERSONALIZED_MUSIC_LIST_CACHE_KEY = 'cache_personalized_mus
 
 /// 推荐新音乐
 const String STORAGE_PERSONALIZED_NEW_MUSIC_CACHE_KEY = 'cache_personalized_new_music_key';
+
+/// 最新专辑
+const String STORAGE_NEWEST_ALBUM_CACHE_KEY = 'cache_newest_album_key';

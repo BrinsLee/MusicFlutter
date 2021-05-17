@@ -8,8 +8,8 @@ import 'package:music_flutter/http/http.dart';
 class BannerApi extends Api{
   /// 获取banner横幅广告
   Future<BannerResult> getBanner({
-    required BuildContext context,
-    BannerRequest? type,
+    @required BuildContext context,
+    BannerRequest type,
     bool refresh = false,
     bool cacheDisk = false,
   }) async {

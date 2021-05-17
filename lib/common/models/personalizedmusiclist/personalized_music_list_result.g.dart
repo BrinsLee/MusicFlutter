@@ -11,10 +11,8 @@ PersonalizedMusicListResult _$PersonalizedMusicListResultFromJson(
   return PersonalizedMusicListResult(
     json['code'] as int,
     json['category'] as int,
-    (json['result'] as List)
-        .map((e) => e == null
-            ? null
-            : PersonalizedMusicList.fromJson(e as Map<String, dynamic>))
+    (json['result'] as List<dynamic>)
+        .map((e) => PersonalizedMusicList.fromJson(e as Map<String, dynamic>))
         .toList(),
   );
 }

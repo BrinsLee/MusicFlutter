@@ -15,9 +15,7 @@ BaseMusic _$BaseMusicFromJson(Map<String, dynamic> json) {
     json['musicUrl'] as String,
     json['name'] as String,
     json['picUrl'] as String,
-    json['song'] == null
-        ? null
-        : Song.fromJson(json['song'] as Map<String, dynamic>),
+    Song.fromJson(json['song'] as Map<String, dynamic>),
     json['type'] as int,
   );
 }

@@ -6,5 +6,6 @@ List<SingleChildWidget> providers = [...independentServices];
 
 List<SingleChildWidget> independentServices = [
   Provider(create: (_) => BannerApi()),
-  Provider(create: (_) => PersonalizedApi())
+  Provider(create: (_) => PersonalizedApi()),
+  Provider(create: (_) => NewestApi()),
 ];

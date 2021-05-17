@@ -20,7 +20,7 @@ class CustomCircularNotchedRectangle extends NotchedShape {
   /// the guest circle.
   // TODO(amirh): add an example diagram here.
   @override
-  Path getOuterPath(Rect host, Rect? guest) {
+  Path getOuterPath(Rect host, Rect guest) {
     if (guest == null || !host.overlaps(guest))
       return Path()..addRect(host);
 

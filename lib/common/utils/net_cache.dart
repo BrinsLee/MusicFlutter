@@ -94,6 +94,8 @@ class NetCache extends Interceptor {
             statusCode: 200,
             data: cacheData,
           ));
+        } else {
+          super.onRequest(options, handler);
         }
       }
     }

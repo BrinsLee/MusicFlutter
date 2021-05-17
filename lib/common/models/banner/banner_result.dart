@@ -7,7 +7,7 @@ part 'banner_result.g.dart';
 @JsonSerializable()
 class BannerResult {
   BannerResult(this.banners);
-  List<Banner?>? banners;
+  List<Banner> banners;
 
   factory BannerResult.fromJson(Map<String, dynamic> json) => _$BannerResultFromJson(json);
 

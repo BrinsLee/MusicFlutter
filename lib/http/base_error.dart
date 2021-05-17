@@ -2,7 +2,7 @@ abstract class BaseError {
   final int code;
   final String message;
 
-  BaseError({required this.code, required this.message});
+  BaseError({this.code, this.message});
 }
 
 class NeedLogin implements BaseError {
@@ -58,7 +58,7 @@ class OtherError implements BaseError {
   final int statusCode;
   final String statusMessage;
 
-  OtherError({required this.statusCode, required this.statusMessage});
+  OtherError({this.statusCode, this.statusMessage});
 
   @override
   int get code => statusCode;

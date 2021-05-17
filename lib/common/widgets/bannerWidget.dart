@@ -1,52 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:music_flutter/common/api/api.dart';
-import 'package:music_flutter/common/models/entities.dart';
 import 'package:music_flutter/common/utils/utils.dart';
-import 'package:music_flutter/common/widgets/baseView.dart';
 import 'package:music_flutter/view_model/home_view_model.dart';
 import 'package:pk_skeleton/pk_skeleton.dart';
-import 'package:provider/provider.dart';
 
 class BannerWidget extends StatefulWidget {
+  final BannerViewModel _model;
+
+  BannerWidget(this._model);
+
   @override
-  _BannerWidgetState createState() => _BannerWidgetState();
+  _BannerWidgetState createState() => _BannerWidgetState(_model);
 }
 
 class _BannerWidgetState extends State<BannerWidget> {
-  late BannerViewModel _model;
+  BannerViewModel _model;
+
+  _BannerWidgetState(this._model);
 
   @override
   void initState() {
-    _model = BannerViewModel(Provider.of<BannerApi>(context));
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return BaseView<BannerViewModel>(
-      builder: (context, model, child) {
-        return _buildContent(context, model);
-      },
-      model: _model,
-      onModelReady: (model) async {
-        model.loadBanner(
-            context: context,
-            request: new BannerRequest('1'),
-            refresh: false,
-            cacheDisk: true);
-      },
-    );
+  void didUpdateWidget(covariant BannerWidget oldWidget) {
+    print("bannerWidget: didUpdateWidget");
+    super.didUpdateWidget(oldWidget);
   }
 
-  Widget _buildContent(BuildContext context, BannerViewModel model) {
-    return model.state == ViewState.dataFetchState
+  @override
+  void deactivate() {
+    print("bannerWidget: deactivate");
+    super.deactivate();
+  }
+
+  @override
+  void dispose() {
+    print("bannerWidget: dispose");
+    super.dispose();
+  }
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildContent(context);
+  }
+
+  Widget _buildContent(BuildContext context) {
+    return _model.state == ViewState.dataFetchState
         ? Container(
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.all(5),
             height: 130,
             child: Swiper(
-              itemCount: model.bannerResult.banners?.length ?? 0,
+              itemCount: _model.bannerResult.banners?.length ?? 0,
               itemBuilder: _swiperBuilder,
               pagination: SwiperPagination(
                 builder: DotSwiperPaginationBuilder(
@@ -56,7 +64,7 @@ class _BannerWidgetState extends State<BannerWidget> {
                     activeSize: 5.0),
               ),
               control: null,
-              duration: 300,
+              duration: 800,
               scrollDirection: Axis.horizontal,
               autoplay: true,
               loop: true,
@@ -66,23 +74,25 @@ class _BannerWidgetState extends State<BannerWidget> {
               onTap: (index) {},
             ),
           )
-        : PKCardPageSkeleton();
+        : PKCardPageSkeleton(
+            totalLines: 1,
+          );
   }
 
   Widget _swiperBuilder(BuildContext context, int index) {
-    if (_model.bannerResult.banners == null) {
+    if (_model.bannerResult == null || _model.bannerResult.banners == null) {
       return Image.asset(
-        "images/base_icon_default_cover.png",
+        "assets/images/base_icon_default_cover.png",
         fit: BoxFit.cover,
       );
     } else {
       return (Container(
         padding: EdgeInsets.only(left: 10, right: 10),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(10),
           child: FadeInImage.assetNetwork(
-            placeholder: "images/base_icon_default_cover.png",
-            image: _model.bannerResult.banners![index]!.picUrl,
+            placeholder: "assets/images/base_icon_default_cover.png",
+            image: _model.bannerResult.banners[index].picUrl,
             fit: BoxFit.cover,
           ),
         ),

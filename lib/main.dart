@@ -6,6 +6,7 @@ import 'package:music_flutter/common/provider/providerSetup.dart';
 import 'package:music_flutter/common/theme/darkThemeModel.dart';
 import 'package:music_flutter/common/theme/themeModel.dart';
 import 'package:music_flutter/common/utils/screen_util.dart';
+import 'package:music_flutter/common/utils/utils.dart';
 import 'package:music_flutter/common/widgets/bottomTabNavigation.dart';
 import 'package:music_flutter/common/widgets/widgets.dart';
 import 'package:music_flutter/pages/splash/splashPage.dart';
@@ -13,15 +14,16 @@ import 'package:music_flutter/pages/undefined/undefined.dart';
 import 'package:provider/provider.dart';
 import 'package:music_flutter/common/routes/router.dart' as router;
 
-String? currentThemeID;
-String? currentDarkThemeID;
-Color? lightAccent;
-Color? darkAccent;
+String currentThemeID;
+String currentDarkThemeID;
+Color lightAccent;
+Color darkAccent;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   currentThemeID = "kLFrost White";
   currentDarkThemeID = "KDMaterial Dark";
+  StorageUtil.init();
   runZoned(() {
     runApp(RestartWidget(
       child: MultiProvider(
@@ -31,7 +33,7 @@ void main() {
                   ThemeModel(themes[currentThemeID], lightAccent)),
           ChangeNotifierProvider<DarkThemeModel>(
             create: (context) =>
-                DarkThemeModel(darkThemes[currentDarkThemeID!], darkAccent),
+                DarkThemeModel(darkThemes[currentDarkThemeID], darkAccent),
           ),
           ...providers,
         ],

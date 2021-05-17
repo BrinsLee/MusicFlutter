@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:music_flutter/common/theme/theme.dart';
 
-Map<String, ThemeData?> themes = {
+Map<String, ThemeData> themes = {
   "kLFrost White": kLightTheme,
 };
 
 class ThemeModel extends ChangeNotifier {
-  ThemeData? currentTheme = kLightTheme;
+  ThemeData currentTheme = kLightTheme;
 
-  ThemeModel(this.currentTheme, Color? accentColor) {
+  ThemeModel(this.currentTheme, Color accentColor) {
     changeAccentColor(accentColor);
   }
 
-  void changeAccentColor(Color? accentColor) {
-    ThemeData newTheme = currentTheme!;
+  void changeAccentColor(Color accentColor) {
+    ThemeData newTheme = currentTheme;
     newTheme = newTheme.copyWith(errorColor: accentColor);
     currentTheme = newTheme;
     return notifyListeners();
   }
 
-  int? getIndex(ThemeData? currentThemeData) {
+  int getIndex(ThemeData currentThemeData) {
     return themes.values.toList().contains(currentThemeData)
         ? themes.values.toList().indexOf(currentThemeData)
         : null;

@@ -14,6 +14,7 @@ class BaseModel<T extends Api> extends ChangeNotifier {
 
   void setState(ViewState value) {
     _state = value;
+    notifyListeners();
   }
 
   @override

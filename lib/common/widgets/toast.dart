@@ -4,8 +4,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:music_flutter/common/utils/screen_util.dart';
 
 
-Future<bool?> toastInfo({
-  required String msg,
+Future<bool> toastInfo({
+  @required String msg,
   Color backgroundColor = Colors.black,
   Color textColor = Colors.white,
 }) async {
@@ -16,6 +16,6 @@ Future<bool?> toastInfo({
     timeInSecForIosWeb: 1,
     backgroundColor: backgroundColor,
     textColor: textColor,
-    fontSize: ScreenUtil.instance!.setSp(16),
+    fontSize: ScreenUtil.instance.setSp(16),
   );
 }

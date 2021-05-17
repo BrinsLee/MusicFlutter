@@ -16,9 +16,7 @@ PersonalizedNewMusic _$PersonalizedNewMusicFromJson(Map<String, dynamic> json) {
     ..musicUrl = json['musicUrl'] as String
     ..type = json['type'] as int
     ..canDislike = json['canDislike'] as bool
-    ..song = json['song'] == null
-        ? null
-        : Song.fromJson(json['song'] as Map<String, dynamic>);
+    ..song = Song.fromJson(json['song'] as Map<String, dynamic>);
 }
 
 Map<String, dynamic> _$PersonalizedNewMusicToJson(

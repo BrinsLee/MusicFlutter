@@ -25,7 +25,7 @@ class BaseMusic {
 
   bool canDislike = true;
 
-  Song? song;
+  Song song;
 
   BaseMusic(this.canDislike, this.cover, this.duration, this.id, this.musicUrl,
       this.name, this.picUrl, this.song, this.type);

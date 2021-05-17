@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.9.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -49,7 +49,7 @@ dependencies:
   # toast
   fluttertoast: ^8.0.6
   # swiper
-  flutter_swiper: ^1.0.6
+  flutter_swiper: ^1.1.6
   # 骨架屏
   pk_skeleton: ^0.0.2
 
@@ -72,8 +72,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/
-
+    - assets/images/base_icon_search_black.png
+    - assets/images/base_icon_default_cover.png
+    - assets/images/home_ic_daily.png
+    - assets/images/home_ic_fm.png
+    - assets/images/home_ic_heart.png
+    - assets/images/home_ic_rank.png
+    - assets/images/home_ic_play.png
+    - assets/images/skin_shadow_rectangle_player_normal.webp
+    - assets/images/skin_shadow_rectangle_player_pressed.webp
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

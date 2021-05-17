@@ -2,8 +2,9 @@
     package="com.brins.music_flutter">
    <application
         android:label="music_flutter"
-        android:icon="@mipmap/ic_launcher">
-        <activity
+       android:usesCleartextTraffic="true"
+       android:icon="@mipmap/ic_launcher">
+       <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"

@@ -8,7 +8,7 @@ part of 'song.dart';
 
 Song _$SongFromJson(Map<String, dynamic> json) {
   return Song(
-    json['alias'] as List,
+    json['alias'] as List<dynamic>,
     json['id'] as int,
     json['name'] as String,
     json['position'] as int,

@@ -12,7 +12,7 @@ class PersonalizedNewMusicResult {
   int code = 0;
   int category = 0;
 
-  List<PersonalizedNewMusic?>? result;
+  List<PersonalizedNewMusic> result;
 
   PersonalizedNewMusicResult(this.code, this.category, this.result);
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:music_flutter/common/routes/router.dart' as router;
 
 class RestartWidget extends StatefulWidget {
-  final Widget? child;
+  final Widget child;
 
   const RestartWidget({this.child});
 
@@ -11,7 +11,7 @@ class RestartWidget extends StatefulWidget {
 
   static void restartApp(BuildContext context) {
     router.navStack = ["Home"];
-    context.findAncestorStateOfType<_RestartWidgetState>()!.restartApp();
+    context.findAncestorStateOfType<_RestartWidgetState>().restartApp();
   }
 }
 
@@ -22,7 +22,7 @@ class _RestartWidgetState extends State<RestartWidget> {
   Widget build(BuildContext context) {
     return KeyedSubtree(
       key: key,
-      child: widget.child!,
+      child: widget.child,
     );
   }
 
