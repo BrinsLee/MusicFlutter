@@ -52,6 +52,8 @@ dependencies:
   flutter_swiper: ^1.1.6
   # 骨架屏
   pk_skeleton: ^0.0.2
+  # staggered_grid_view
+  flutter_staggered_grid_view:
 
 dev_dependencies:
   flutter_test:

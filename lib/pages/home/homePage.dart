@@ -231,7 +231,7 @@ class _HomePageState extends State<HomePage> {
                   child: _buildTabBar(),
                 ),
                 Container(
-                  height: 100,
+                  height: 340,
                   child: CustomTabBar.TabBarView(
                     children: [
                       _buildTabView("新专辑"),
