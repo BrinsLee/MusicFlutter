@@ -9,9 +9,9 @@ part of 'artist.dart';
 Artist _$ArtistFromJson(Map<String, dynamic> json) {
   return Artist(
     json['name'] as String,
-    json['id'] as String,
-    json['picId'] as String,
-    json['img1v1Id'] as String,
+    json['id'] as int,
+    json['picId'] as int,
+    json['img1v1Id'] as int,
     json['picUrl'] as String,
     json['img1v1Url'] as String,
     json['albumSize'] as int,

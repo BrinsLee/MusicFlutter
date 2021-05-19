@@ -54,6 +54,10 @@ dependencies:
   pk_skeleton: ^0.0.2
   # staggered_grid_view
   flutter_staggered_grid_view:
+  # 屏幕
+  flutter_screenutil: ^5.0.0+2
+  # 状态栏
+  flutter_statusbarcolor:
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +87,7 @@ flutter:
     - assets/images/home_ic_play.png
     - assets/images/skin_shadow_rectangle_player_normal.webp
     - assets/images/skin_shadow_rectangle_player_pressed.webp
+    - assets/images/home_ic_vinyl_record.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

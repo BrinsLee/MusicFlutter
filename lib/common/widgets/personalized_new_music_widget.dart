@@ -32,7 +32,7 @@ class _PersonalizedNewMusicWidgetState
   @override
   Widget build(BuildContext context) {
     PersonalizedNewMusicResult musicResult = _musicViewModel.musicResult;
-    return (_musicViewModel.musicResult != null ||
+    return (_musicViewModel.musicResult != null &&
             _musicViewModel.state == ViewState.dataFetchState)
         ? Container(
             height: 150,

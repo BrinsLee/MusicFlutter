@@ -8,11 +8,11 @@ class Artist {
 
   String name;
 
-  String id;
+  int id;
 
-  String picId;
+  int picId;
 
-  String img1v1Id;
+  int img1v1Id;
 
   String picUrl;
 

@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:music_flutter/common/models/album/artist.dart';
 
 part 'newest_album.g.dart';
 
@@ -29,6 +30,10 @@ class NewestAlbum {
 
   String company;
 
+  Artist artist;
+
+  List<Artist> artists;
+
   NewestAlbum(
       this.name,
       this.id,
@@ -41,7 +46,10 @@ class NewestAlbum {
       this.publishTime,
       this.description,
       this.tags,
-      this.company);
+      this.company,
+      this.artist,
+      this.artists
+      );
 
   factory NewestAlbum.fromJson(Map<String, dynamic> json) => _$NewestAlbumFromJson(json);
 

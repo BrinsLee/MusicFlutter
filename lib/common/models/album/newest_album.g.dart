@@ -20,6 +20,10 @@ NewestAlbum _$NewestAlbumFromJson(Map<String, dynamic> json) {
     json['description'] as String,
     json['tags'] as String,
     json['company'] as String,
+    Artist.fromJson(json['artist'] as Map<String, dynamic>),
+    (json['artists'] as List<dynamic>)
+        .map((e) => Artist.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -37,4 +41,6 @@ Map<String, dynamic> _$NewestAlbumToJson(NewestAlbum instance) =>
       'description': instance.description,
       'tags': instance.tags,
       'company': instance.company,
+      'artist': instance.artist,
+      'artists': instance.artists,
     };
