@@ -10,7 +10,7 @@ part 'personalized_new_music.g.dart';
 
 @JsonSerializable()
 class PersonalizedNewMusic extends BaseMusic {
-  PersonalizedNewMusic() : super(false, '', 0, 0, '', '', '', null, 0);
+  PersonalizedNewMusic() : super(false, '', 0, 0, '', '', '', null, 0, []);
 
   factory PersonalizedNewMusic.fromJson(Map<String, dynamic> json) =>
       _$PersonalizedNewMusicFromJson(json);

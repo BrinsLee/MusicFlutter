@@ -58,6 +58,12 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   # 状态栏
   flutter_statusbarcolor:
+  # audio_service
+  audio_service: ^0.17.0
+  # just_audio 0.7.4+1
+  just_audio: ^0.7.4+1
+  # audio_session: ^0.0.11
+  audio_session: ^0.1.0
 
 dev_dependencies:
   flutter_test:

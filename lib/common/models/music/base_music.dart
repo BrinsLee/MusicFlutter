@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:music_flutter/common/models/album/artist.dart';
 
 import 'song.dart';
 
@@ -27,8 +28,10 @@ class BaseMusic {
 
   Song song;
 
+  List<Artist> artists;
+
   BaseMusic(this.canDislike, this.cover, this.duration, this.id, this.musicUrl,
-      this.name, this.picUrl, this.song, this.type);
+      this.name, this.picUrl, this.song, this.type, this.artists);
 
   factory BaseMusic.fromJson(Map<String, dynamic> json) =>
       _$BaseMusicFromJson(json);

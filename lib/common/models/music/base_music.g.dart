@@ -8,16 +8,19 @@ part of 'base_music.dart';
 
 BaseMusic _$BaseMusicFromJson(Map<String, dynamic> json) {
   return BaseMusic(
-    json['canDislike'] as bool,
-    json['cover'] as String,
-    json['duration'] as int,
-    json['id'] as int,
-    json['musicUrl'] as String,
-    json['name'] as String,
-    json['picUrl'] as String,
-    Song.fromJson(json['song'] as Map<String, dynamic>),
-    json['type'] as int,
-  );
+      json['canDislike'] as bool,
+      json['cover'] as String,
+      json['duration']?? json['dt'] as int,
+      json['id'] as int,
+      json['musicUrl'] as String,
+      json['name'] as String,
+      json['picUrl'] as String,
+      Song.fromJson(
+          json['song'] ?? json['album'] ?? json['al'] as Map<String, dynamic>),
+      json['type'] as int,
+      (json['artists'] as List<dynamic>)
+          .map((e) => Artist.fromJson(e as Map<String, dynamic>))
+          .toList());
 }
 
 Map<String, dynamic> _$BaseMusicToJson(BaseMusic instance) => <String, dynamic>{
@@ -30,4 +33,5 @@ Map<String, dynamic> _$BaseMusicToJson(BaseMusic instance) => <String, dynamic>{
       'type': instance.type,
       'canDislike': instance.canDislike,
       'song': instance.song,
+      'artists': instance.artists,
     };

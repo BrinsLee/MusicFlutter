@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +11,6 @@ import 'package:music_flutter/common/theme/themeModel.dart';
 import 'package:music_flutter/common/utils/utils.dart';
 import 'package:music_flutter/common/widgets/bottom_tab_navigation.dart';
 import 'package:music_flutter/common/widgets/widgets.dart';
-import 'package:music_flutter/pages/splash/splashPage.dart';
 import 'package:music_flutter/pages/undefined/undefined.dart';
 import 'package:provider/provider.dart';
 import 'package:music_flutter/common/routes/router.dart' as router;
@@ -25,12 +25,12 @@ void main() async{
   currentThemeID = "kLFrost White";
   currentDarkThemeID = "KDMaterial Dark";
   StorageUtil.init();
-  await FlutterStatusbarcolor.setStatusBarColor(Colors.white);
+/*  await FlutterStatusbarcolor.setStatusBarColor(Colors.white);
   if (useWhiteForeground(Colors.white)) {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
   } else {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
-  }
+  }*/
   runZoned(() {
     runApp(RestartWidget(
       child: MultiProvider(
@@ -82,6 +82,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return BottomTabNavigation();
+    SystemUiOverlayStyle style = SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    );
+    SystemChrome.setSystemUIOverlayStyle(style);
+    return AudioServiceWidget(child: BottomTabNavigation());
   }
 }

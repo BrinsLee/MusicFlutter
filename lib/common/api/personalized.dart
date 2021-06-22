@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:music_flutter/common/api/api.dart';
 import 'package:music_flutter/common/models/entities.dart';
+import 'package:music_flutter/common/models/music/music_url.dart';
 import 'package:music_flutter/global.dart';
 import 'package:music_flutter/http/http.dart';
 
-
-class PersonalizedApi extends Api{
+class PersonalizedApi extends Api {
   /// 获取推荐音乐列表
   Future<PersonalizedMusicListResult> getPersonalizedMusicList({
     int limit = 10,
@@ -42,5 +42,19 @@ class PersonalizedApi extends Api{
       cacheKey: STORAGE_PERSONALIZED_NEW_MUSIC_CACHE_KEY,
     );
     return PersonalizedNewMusicResult.fromJson(result);
+  }
+
+  /// 获取音乐链接
+  Future<MusicUrl> getMusicUrl(String id,
+      {@required BuildContext context,
+      bool refresh = false,
+      bool cacheDisk = true}) async {
+    var result = await HttpUtil().get("/song/url",
+        context: context,
+        params: <String, dynamic>{'id': id},
+        refresh: refresh,
+        cacheDisk: cacheDisk,
+        cacheKey: "");
+    return MusicUrl.fromJson(result);
   }
 }

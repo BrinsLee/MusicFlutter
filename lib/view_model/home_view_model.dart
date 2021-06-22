@@ -3,6 +3,7 @@ import 'package:music_flutter/common/api/api.dart';
 import 'package:music_flutter/common/models/album/newest_album.dart';
 import 'package:music_flutter/common/models/album/newest_album_result.dart';
 import 'package:music_flutter/common/models/entities.dart';
+import 'package:music_flutter/common/models/music/music_url.dart';
 import 'package:music_flutter/common/utils/utils.dart';
 import 'package:music_flutter/model/baseModel.dart';
 
@@ -73,6 +74,10 @@ class PersonalizedMusicViewModel extends BaseModel {
     _listResult = await (api as PersonalizedApi).getPersonalizedMusicList(
         limit: limit, context: context, refresh: refresh, cacheDisk: cacheDisk);
     setState(ViewState.dataFetchState);
+  }
+
+  Future<MusicUrl> loadMusicUrl(String id, {@required BuildContext context}) {
+    return (api as PersonalizedApi).getMusicUrl(id, context: context);
   }
 }
 

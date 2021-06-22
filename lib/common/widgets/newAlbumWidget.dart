@@ -42,7 +42,7 @@ class _NewAlbumWidgetState extends State<NewAlbumWidget>
   }
 
   Widget _buildListItemWithIndex(List<NewestAlbum> album, int index) {
-    return NewAlbumItemWidget(album, start: index, end: index + 3);
+    return NewAlbumItemWidget(album, start: index + 2 * index, end: index + 3);
   }
 
   @override
